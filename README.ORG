@@ -1,0 +1,16 @@
+* qeddit
+
+(Always written with lowercase q!)
+
+* What is qeddit?
+
+qeddit is a web client for reddit. Which runs without JS. It also
+proxies images so you *never* talk to reddit!
+
+* Installation?
+
+TODO
+
+Basically, make your webserver execute .cgi files and install the
+dependencies. LWP::UserAgent, CGI and JSON are the perl modules qeddit
+needs.
