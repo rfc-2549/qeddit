@@ -14,8 +14,8 @@ my $num_comments = $json_data->[0]->{data}->{children}->[0]->{data}->{num_commen
 print $q->h2($json_data->[0]->{data}->{children}->[0]->{data}->{title});
 my $post = $json_data->[0]->{data}->{children}->[0]->{data}->{selftext_html};
 my $post_img = $json_data->[0]->{data}->{children}->[0]->{data}->{url_overridden_by_dest};
-
-print "<img src=\"$post_img\" alt=\"image\"/>" if $post_img;
+my $proxy_url = "proxy.cgi?url=$post_img";
+print "<img src=\"$proxy_url\" alt=\"image\"/>" if $post_img;
 
 $post =~ s/&gt;/>/g;
 $post =~ s/&lt;/</g;
