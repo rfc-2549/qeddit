@@ -27,15 +27,12 @@ align-items: stretch;
 justify-content: space-between;
 margin: 0 auto;
 }
- #post {
-height: 254px;
+  #post {
+ height: 254px;
 width: 204px;
-background-color: #2f343f;
-border-style: solid;
-border-width: 2px;
-border-color: #bebebe;
+background-color:               #bebebe;
 text-align: center;
-margin: 7px;
+padding: 2px;
 float: left;
 }
   img{
