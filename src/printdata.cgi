@@ -16,6 +16,7 @@ my $JSON = JSON->new;
 $ua->agent("Mozilla/5.0 (Windows NT 10.0; WOW64; rv:74.0.1) Gecko/20100101 Firefox/74.0.1");
 
 my $destination = $q->param("destination");
+$destination = encode_entities($destination);
 print $q->header;
 print "<meta charset='utf-8'>";
 print "<style>
@@ -83,8 +84,8 @@ overflow-y: auto;
 print $q->h1("r/".$destination);
 my $json_data = $JSON->decode($ua->get("https://old.reddit.com/r/$destination/.json?&limit=20")->content);
 for (my $i = 0; $i<20;$i++) {
-  my $title = $json_data->{data}->{children}->[$i]->{data}->{title};
-  my $author = $json_data->{data}->{children}->[$i]->{data}->{author};
+  my $title = encode_entities($json_data->{data}->{children}->[$i]->{data}->{title});
+  my $author = encode_entities($json_data->{data}->{children}->[$i]->{data}->{author});
   my $content = $json_data->{data}->{children}->[$i]->{data}->{selftext_html};
   my $link =$json_data->{data}->{children}->[$i]->{data}->{permalink};
   # $content =~ s/&gt;/>/g; $content =~ s/&lt;/</g;
